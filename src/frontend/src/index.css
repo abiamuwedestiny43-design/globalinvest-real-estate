@@ -1,0 +1,139 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Playfair Display";
+  src: url("/assets/fonts/PlayfairDisplay.woff2") format("woff2");
+  font-weight: 400 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("/assets/fonts/DMSans.woff2") format("woff2");
+  font-weight: 400 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Instrument Serif";
+  src: url("/assets/fonts/InstrumentSerif-Italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-transition {
+  animation: page-enter 0.25s ease-out both;
+}
+
+/* Section heading accent bar */
+.section-accent-bar {
+  display: block;
+  width: 3rem;
+  height: 3px;
+  border-radius: 9999px;
+  background: oklch(var(--primary));
+  margin: 0.875rem auto 0;
+}
+
+/* Leader card quote reveal — smooth grid transition */
+.leader-quote-wrap {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.group:hover .leader-quote-wrap {
+  grid-template-rows: 1fr;
+}
+.leader-quote-inner {
+  overflow: hidden;
+}
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+    /* White/Charcoal/Teal/Navy palette */
+    --background: 1 0 0;
+    --foreground: 0.18 0.025 250;
+    --card: 0.99 0 0;
+    --card-foreground: 0.18 0.025 250;
+    --popover: 1 0 0;
+    --popover-foreground: 0.18 0.025 250;
+    /* primary = rich teal */
+    --primary: 0.5 0.16 195;
+    --primary-foreground: 0.98 0 0;
+    /* secondary = deep navy */
+    --secondary: 0.26 0.09 258;
+    --secondary-foreground: 0.96 0 0;
+    /* accent = light teal tint (hover backgrounds, subtle fills) */
+    --accent: 0.93 0.04 195;
+    --accent-foreground: 0.18 0.025 250;
+    --muted: 0.96 0.01 250;
+    --muted-foreground: 0.48 0.02 250;
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 1 0 0;
+    --border: 0.89 0.01 250;
+    --input: 0.89 0.01 250;
+    --ring: 0.5 0.16 195;
+    /* gold for net worth badges */
+    --gold: 0.82 0.16 78;
+    --gold-foreground: 0.25 0.06 55;
+    --chart-1: 0.5 0.16 195;
+    --chart-2: 0.26 0.09 258;
+    --chart-3: 0.646 0.222 41.116;
+    --chart-4: 0.828 0.189 84.429;
+    --chart-5: 0.769 0.188 70.08;
+    --sidebar: 0.97 0.01 255;
+    --sidebar-foreground: 0.18 0.025 250;
+    --sidebar-primary: 0.5 0.16 195;
+    --sidebar-primary-foreground: 0.98 0 0;
+    --sidebar-accent: 0.93 0.04 195;
+    --sidebar-accent-foreground: 0.18 0.025 250;
+    --sidebar-border: 0.89 0.01 250;
+    --sidebar-ring: 0.5 0.16 195;
+
+    /* Rent Lounge tokens — warm terracotta palette */
+    --lounge-bg: 0.97 0.02 65;
+    --lounge-card: 0.99 0.01 75;
+    --lounge-accent: 0.62 0.18 42;
+    --lounge-overlay: 0.22 0.06 42;
+    --lounge-border: 0.88 0.04 55;
+    --lounge-muted: 0.52 0.04 50;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: "DM Sans", system-ui, sans-serif;
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: "Playfair Display", Georgia, serif;
+  }
+
+  /* Skip-to-content link */
+  .skip-link {
+    @apply sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200] focus:bg-primary focus:text-primary-foreground focus:px-4 focus:py-2 focus:rounded-md focus:shadow-lg;
+  }
+
+  /* Focus ring for all interactive elements */
+  :focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+}

@@ -1,0 +1,61 @@
+export const CURRENCY_LIST = [
+  "USD",
+  "EUR",
+  "GBP",
+  "AED",
+  "JPY",
+  "CNY",
+  "INR",
+  "SAR",
+  "QAR",
+  "SGD",
+  "AUD",
+  "CAD",
+  "CHF",
+  "HKD",
+  "KWD",
+  "BHD",
+  "OMR",
+  "MYR",
+  "THB",
+  "NGN",
+  "ZAR",
+  "BRL",
+  "MXN",
+  "KRW",
+  "TRY",
+];
+
+export const CURRENCY_NAMES: Record<string, string> = {
+  USD: "US Dollar",
+  EUR: "Euro",
+  GBP: "British Pound Sterling",
+  AED: "UAE Dirham",
+  JPY: "Japanese Yen",
+  CNY: "Chinese Yuan Renminbi",
+  INR: "Indian Rupee",
+  SAR: "Saudi Riyal",
+  QAR: "Qatari Riyal",
+  SGD: "Singapore Dollar",
+  AUD: "Australian Dollar",
+  CAD: "Canadian Dollar",
+  CHF: "Swiss Franc",
+  HKD: "Hong Kong Dollar",
+  KWD: "Kuwaiti Dinar",
+  BHD: "Bahraini Dinar",
+  OMR: "Omani Rial",
+  MYR: "Malaysian Ringgit",
+  THB: "Thai Baht",
+  NGN: "Nigerian Naira",
+  ZAR: "South African Rand",
+  BRL: "Brazilian Real",
+  MXN: "Mexican Peso",
+  KRW: "South Korean Won",
+  TRY: "Turkish Lira",
+};
+
+/** Returns "Currency Name (CODE)" */
+export function currencyLabel(code: string): string {
+  const name = CURRENCY_NAMES[code];
+  return name ? `${name} (${code})` : code;
+}
